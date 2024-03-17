@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>学习《精通开关电源设计》 | GEGEEK</title><meta name="author" content="GeGEEK"><meta name="copyright" content="GeGEEK"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.1 引言 1.2 概述和基本术语1.2.1 #效率效率的定义式：$$\eta&#x3D;\frac{P_{0}}{P_{\mathrm{IN}}}$$其中$P_O$是输出功率:$P_{0}&#x3D;V_{0}\times I_{0}$其中$P_I$是输出功率:$P_{IN}&#x3D;V_{IN}\times I_{IN}$ 理想状态下开关电源的转换效率为100%，但是实际上不可能达到这么高">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习《精通开关电源设计》">
+<meta property="og:url" content="https://gegezwx.github.io/2024/03/17/%E5%AD%A6%E4%B9%A0%E3%80%8A%E7%B2%BE%E9%80%9A%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1%E3%80%8B/index.html">
+<meta property="og:site_name" content="GEGEEK">
+<meta property="og:description" content="1.1 引言 1.2 概述和基本术语1.2.1 #效率效率的定义式：$$\eta&#x3D;\frac{P_{0}}{P_{\mathrm{IN}}}$$其中$P_O$是输出功率:$P_{0}&#x3D;V_{0}\times I_{0}$其中$P_I$是输出功率:$P_{IN}&#x3D;V_{IN}\times I_{IN}$ 理想状态下开关电源的转换效率为100%，但是实际上不可能达到这么高">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blog%E8%8A%B1%E7%81%AB1.jpg">
+<meta property="article:published_time" content="2024-03-17T08:48:21.000Z">
+<meta property="article:modified_time" content="2024-03-17T09:02:53.613Z">
+<meta property="article:author" content="GeGEEK">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="电源设计">
+<meta property="article:tag" content="开关电源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blog%E8%8A%B1%E7%81%AB1.jpg"><link rel="shortcut icon" href="/img/circuit-board.png"><link rel="canonical" href="https://gegezwx.github.io/2024/03/17/%E5%AD%A6%E4%B9%A0%E3%80%8A%E7%B2%BE%E9%80%9A%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1%E3%80%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '学习《精通开关电源设计》',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-17 17:02:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/I.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blog%E8%8A%B1%E7%81%AB1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="GEGEEK"><span class="site-name">GEGEEK</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">学习《精通开关电源设计》</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-17T08:48:21.000Z" title="发表于 2024-03-17 16:48:21">2024-03-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-17T09:02:53.613Z" title="更新于 2024-03-17 17:02:53">2024-03-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/">电子工程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/">电路设计</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E7%94%B5%E6%BA%90/">电源</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="学习《精通开关电源设计》"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-1-引言"><a href="#1-1-引言" class="headerlink" title="1.1 引言"></a>1.1 引言</h1><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240316143844.png"></p>
+<h1 id="1-2-概述和基本术语"><a href="#1-2-概述和基本术语" class="headerlink" title="1.2 概述和基本术语"></a>1.2 概述和基本术语</h1><h2 id="1-2-1-效率"><a href="#1-2-1-效率" class="headerlink" title="1.2.1 #效率"></a>1.2.1 #效率</h2><p>效率的定义式：<br>$$\eta&#x3D;\frac{P_{0}}{P_{\mathrm{IN}}}$$<br>其中$P_O$是输出功率:$P_{0}&#x3D;V_{0}\times I_{0}$<br>其中$P_I$是输出功率:$P_{IN}&#x3D;V_{IN}\times I_{IN}$</p>
+<p>理想状态下开关电源的转换效率为100%，但是实际上不可能达到这么高，现代开关电源的效率一般是65%~95%</p>
+<h2 id="1-2-2-线性调整器"><a href="#1-2-2-线性调整器" class="headerlink" title="1.2.2 线性调整器"></a>1.2.2 线性调整器</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240316145052.png"><br>线性调整器也称为串联型调整器，通过使串联的晶体管工作在U-I特性的线性区（可变电阻）完成降压，<strong>实际上是将降压部分的功耗消耗在了串联晶体管上</strong>。<br>其缺点是效率低，优点是无噪声问题和EMI问题</p>
+<h2 id="1-2-3-利用开关器件提高效率"><a href="#1-2-3-利用开关器件提高效率" class="headerlink" title="1.2.3 利用开关器件提高效率"></a>1.2.3 利用开关器件提高效率</h2><p>开关器件工作在开关模式而非放大模式，理想状态下无开关损耗</p>
+<h2 id="1-2-4-半导体开关器件的基本类型"><a href="#1-2-4-半导体开关器件的基本类型" class="headerlink" title="1.2.4 半导体开关器件的基本类型"></a>1.2.4 半导体开关器件的基本类型</h2><h3 id="BJT（双极性晶体管）"><a href="#BJT（双极性晶体管）" class="headerlink" title="BJT（双极性晶体管）"></a>BJT（双极性晶体管）</h3><p>速度慢但价格低廉，其中NPN价格更低更广泛应用</p>
+<h3 id="MOSFET（金属氧化物半导体场效应晶体管）"><a href="#MOSFET（金属氧化物半导体场效应晶体管）" class="headerlink" title="MOSFET（金属氧化物半导体场效应晶体管）"></a>MOSFET（金属氧化物半导体场效应晶体管）</h3><p>其中NMOS和PMOS最常用，而且NMOS高性价比和高性能，而PMOS驱动电路简单</p>
+<h3 id="BJT和MOSFET的争论"><a href="#BJT和MOSFET的争论" class="headerlink" title="BJT和MOSFET的争论"></a>BJT和MOSFET的争论</h3><ol>
+<li>MOSFET压控BJT流控（实际上MOS驱动也会有栅极电流，有时为了加速开关会栅极流过更大电流）</li>
+<li>实际上NPN型BJT导通条件比NMOS更易满足，前者只需要基极电压比发射极电压高0.8V甚至更小，而NMOS需要栅极比漏极高几V才行，于是NMOS驱动会需要自举电路</li>
+<li>BJT开关慢噪声小</li>
+<li>BJT重载下导通压降不变，导通损耗不会随着负载变大</li>
+</ol>
+<h4 id="IGBT（绝缘栅型双极晶体管）"><a href="#IGBT（绝缘栅型双极晶体管）" class="headerlink" title="IGBT（绝缘栅型双极晶体管）"></a>IGBT（绝缘栅型双极晶体管）</h4><p>主要适合低频大电流</p>
+<h2 id="1-2-5-半导体开关器件非理想器件"><a href="#1-2-5-半导体开关器件非理想器件" class="headerlink" title="1.2.5 半导体开关器件非理想器件"></a>1.2.5 半导体开关器件非理想器件</h2><p>电子开关损耗：</p>
+<ol>
+<li>泄露损耗： 关断时漏电流产生的损耗</li>
+<li>导通损耗： 导通时产生正向压降产生的损耗</li>
+<li>开关损耗&#x2F;交叉损耗： 开关转换时电压电流交叉产生的损耗</li>
+</ol>
+<h2 id="1-2-6-利用电抗元件提高效率"><a href="#1-2-6-利用电抗元件提高效率" class="headerlink" title="1.2.6 利用电抗元件提高效率"></a>1.2.6 利用电抗元件提高效率</h2><p>现代开关电源效率高的另一原因时电容和电感的有效使用<br>开关电源的+工作逻辑</p>
+<ol>
+<li>使用开关管来简历输出电压控制</li>
+<li>每次开关动作都能有效断开输入和输出</li>
+<li>一旦引入电容，就需要限制其过大的浪涌电流（直流电输入电容的UI特性）–会增大噪声电磁干扰和降低效率</li>
+<li>为提高效率使用电感元件进行限流并进行能量储存释放</li>
+</ol>
+<h2 id="1-2-7-早期RC型开关调整器"><a href="#1-2-7-早期RC型开关调整器" class="headerlink" title="1.2.7 早期RC型开关调整器"></a>1.2.7 早期RC型开关调整器</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240316145052.png"></p>
+<h2 id="1-2-8-LC型开关调整器"><a href="#1-2-8-LC型开关调整器" class="headerlink" title="1.2.8 LC型开关调整器"></a>1.2.8 LC型开关调整器</h2><h3 id="其他开关调整器"><a href="#其他开关调整器" class="headerlink" title="其他开关调整器"></a>其他开关调整器</h3><ol>
+<li>电荷泵： 仅限于小功率使用</li>
+<li>谐振型： 工频变化大不可控噪声问题</li>
+</ol>
+<h2 id="1-2-9-寄生参数影响"><a href="#1-2-9-寄生参数影响" class="headerlink" title="1.2.9 寄生参数影响"></a>1.2.9 寄生参数影响</h2><p><strong>电抗元件的温升总源自元件自身与生俱来的小阻值寄生电阻的损耗</strong><br>EG：</p>
+<ul>
+<li>电感寄生的直流电阻DCR</li>
+<li>电容寄生的等效串联电阻ESR<br>而其他元器件也具有各种不同的寄生电抗参数</li>
+</ul>
+<p><strong>寄生参数不是完全有害的，他们对电路稳定性又是十分有益</strong><br>EG：</p>
+<ul>
+<li>短路故障下寄生参数遏制短路电流的过大</li>
+<li>输出电容等效串联电阻减小调整输出时的过度震荡和振铃</li>
+<li>寄生电感在开关导通时限制剑锋电流，但在关断时会产生尖峰电压</li>
+<li>寄生电容在关断时有益，导通时有害</li>
+</ul>
+<h2 id="1-2-10-高频开关时的问题"><a href="#1-2-10-高频开关时的问题" class="headerlink" title="1.2.10 高频开关时的问题"></a>1.2.10 高频开关时的问题</h2><h2 id="1-2-11-可靠性、使用寿命和热管理"><a href="#1-2-11-可靠性、使用寿命和热管理" class="headerlink" title="1.2.11 可靠性、使用寿命和热管理"></a>1.2.11 可靠性、使用寿命和热管理</h2><p>延长寿命并提高可靠性的方法是降低开关电源中元器件的温度和电源壳体内的环境温度</p>
+<h2 id="1-2-12-应力降频"><a href="#1-2-12-应力降频" class="headerlink" title="1.2.12 应力降频"></a>1.2.12 应力降频</h2><p>热应力70%<br>电气应力70%~80%<br>一些损耗会随着温度的升高而降低，但温度升高会对系统稳定性产生影响，所以通过提高工作温度来提高效率或者改善性能不可取</p>
+<h2 id="1-2-13-技术发展"><a href="#1-2-13-技术发展" class="headerlink" title="1.2.13 技术发展"></a>1.2.13 技术发展</h2><p>元器件技术有很大发展，功率变换的基本电路拓扑仍然十分重要</p>
+<h1 id="1-3-电感"><a href="#1-3-电感" class="headerlink" title="1.3 电感"></a>1.3 电感</h1><h2 id="1-3-1-电容电感和电压电流"><a href="#1-3-1-电容电感和电压电流" class="headerlink" title="1.3.1 电容电感和电压电流"></a>1.3.1 电容电感和电压电流</h2><p><strong>要正确认识电感，更多从电流角度出发去认识电路</strong></p>
+<h2 id="1-3-2-电感电容的充放电电路"><a href="#1-3-2-电感电容的充放电电路" class="headerlink" title="1.3.2 电感电容的充放电电路"></a>1.3.2 电感电容的充放电电路</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317141254.png"><br>由于电感和电容的对偶特性，很多时候我们可以通过对偶原则来对电感进行定性分析，但图示电感电路和电容电路并不是完全对称的<br>[[第一章 开关功率变换原理#1.3.7 对偶原理]]</p>
+<h2 id="1-3-3-能量守恒定律"><a href="#1-3-3-能量守恒定律" class="headerlink" title="1.3.3 能量守恒定律"></a>1.3.3 能量守恒定律</h2><h2 id="1-3-4-充电阶段和感应电压概念"><a href="#1-3-4-充电阶段和感应电压概念" class="headerlink" title="1.3.4 充电阶段和感应电压概念"></a>1.3.4 充电阶段和感应电压概念</h2><p>楞次定律和法拉第定律</p>
+<h2 id="1-3-5-串联电阻对时间常数的影响"><a href="#1-3-5-串联电阻对时间常数的影响" class="headerlink" title="1.3.5 串联电阻对时间常数的影响"></a>1.3.5 串联电阻对时间常数的影响</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317142625.png"><br>$\tau&#x3D;L&#x2F;RL&#x2F;R$<br><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317142743.png"><br>在电感分析中，应该始终注意电感电流变化，电感电压之跟随电流变化</p>
+<h2 id="1-3-6-R-0时的电感充电电路和电感方程"><a href="#1-3-6-R-0时的电感充电电路和电感方程" class="headerlink" title="1.3.6 R&#x3D;0时的电感充电电路和电感方程"></a>1.3.6 R&#x3D;0时的电感充电电路和电感方程</h2><p>$$\frac{\mathrm{d}I}{\mathrm{d}t}&#x3D;\frac{V}{L}\quad(\text{电感方程})$$<br>其中电感两侧电压为 V 电流为 I  ^1f9f7c</p>
+<h2 id="1-3-7-对偶原理"><a href="#1-3-7-对偶原理" class="headerlink" title="1.3.7 对偶原理"></a>1.3.7 对偶原理</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317150559.png"></p>
+<h2 id="1-3-8-电容方程"><a href="#1-3-8-电容方程" class="headerlink" title="1.3.8 电容方程"></a>1.3.8 电容方程</h2><p>$$I&#x3D;C\frac{\mathrm{d}V}{\mathrm{d}t}(\text{电容方程})$$</p>
+<h2 id="1-3-9-电感放电阶段"><a href="#1-3-9-电感放电阶段" class="headerlink" title="1.3.9 电感放电阶段"></a>1.3.9 电感放电阶段</h2><h2 id="1-3-10-反击能量和续流电流"><a href="#1-3-10-反击能量和续流电流" class="headerlink" title="1.3.10 反击能量和续流电流"></a>1.3.10 反击能量和续流电流</h2><h2 id="1-3-11-电流必须连续，但其变化率未必"><a href="#1-3-11-电流必须连续，但其变化率未必" class="headerlink" title="1.3.11 电流必须连续，但其变化率未必"></a>1.3.11 电流必须连续，但其变化率未必</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317151254.png"></p>
+<h2 id="1-3-12-电压反向现象"><a href="#1-3-12-电压反向现象" class="headerlink" title="1.3.12 电压反向现象"></a>1.3.12 电压反向现象</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317151313.png"></p>
+<h2 id="1-3-13-功率变换过程中的稳态及其不同工作模式"><a href="#1-3-13-功率变换过程中的稳态及其不同工作模式" class="headerlink" title="1.3.13 功率变换过程中的稳态及其不同工作模式"></a>1.3.13 功率变换过程中的稳态及其不同工作模式</h2><p>![[第一章 开关功率变换原理#^1f9f7c]]<br>电流在正向电压下上升，在反向电压下下降<br>在稳态工作状态下，每个周期结束后电流回到开始时的初值<br>而根据初值的不同，可以将工作模式分为以下几种<br><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317152944.png"></p>
+<h2 id="1-3-14-伏秒平衡、电感复位和变换器的占空比"><a href="#1-3-14-伏秒平衡、电感复位和变换器的占空比" class="headerlink" title="1.3.14 伏秒平衡、电感复位和变换器的占空比"></a>1.3.14 伏秒平衡、电感复位和变换器的占空比</h2><p>![[第一章 开关功率变换原理#^1f9f7c]]<br>在一个开关周期内，若电感初值等于末值，<strong>有电感电压随时间变化的曲线净面积为0</strong><br>$$\Delta I_{\mathrm{ON}}&#x3D;\frac{V_{\mathrm{ON}}\times t_{\mathrm{0N}}}{L}&#x3D;\frac{V_{\mathrm{ON}}\times t_{\mathrm{ON-uH}}}{L_{\mathrm{uH}}}&#x3D;\frac{Et}{L_{\mathrm{~\mu H}}}$$<br><strong>推论： 在稳态工作状态下，每个周期内电感必须复位</strong><br>$$D&#x3D;\frac{t_{\mathrm{ON}}}{t_{\mathrm{ON}}+(T-t_{\mathrm{ON}})}&#x3D;\frac{t_{\mathrm{ON}}}{T}\quad(\text{占空比定义)}$$<br>需要明确<code>toff</code>指的是感应电压<code>VOFF</code>持续时间而不一定等于开关的管段时间，仅限于连续导通模式下会有：<br>$$D&#x3D;\frac{t_{\mathrm{ON}}}{t_{\mathrm{ON}}+t_{\mathrm{OFF}}}\quad\text{(CCM时占空比)}$$</p>
+<h2 id="1-3-15-半导体开关器件的使用和保护"><a href="#1-3-15-半导体开关器件的使用和保护" class="headerlink" title="1.3.15 半导体开关器件的使用和保护"></a>1.3.15 半导体开关器件的使用和保护</h2><ul>
+<li>半导体器件任何工作瞬间哦都不能超过其绝对最大额定电压，否则器件会瞬间损坏</li>
+<li>不能让期间始终工作在过流状态下</li>
+<li>需要在设计电路板时设计钳位电路保护</li>
+<li>需要设置限流保护（下一周期不要记住上一周期发生的事）</li>
+</ul>
+<h1 id="1-4-开关拓扑的演变"><a href="#1-4-开关拓扑的演变" class="headerlink" title="1.4 开关拓扑的演变"></a>1.4 开关拓扑的演变</h1><h2 id="1-4-1-通过二极管续流控制感应电压尖峰"><a href="#1-4-1-通过二极管续流控制感应电压尖峰" class="headerlink" title="1.4.1 通过二极管续流控制感应电压尖峰"></a>1.4.1 通过二极管续流控制感应电压尖峰</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317160447.png"></p>
+<h2 id="1-4-2-达到稳态并获得有用能量"><a href="#1-4-2-达到稳态并获得有用能量" class="headerlink" title="1.4.2 达到稳态并获得有用能量"></a>1.4.2 达到稳态并获得有用能量</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317160842.png"></p>
+<h2 id="1-4-3-升降压拓扑"><a href="#1-4-3-升降压拓扑" class="headerlink" title="1.4.3 升降压拓扑"></a>1.4.3 升降压拓扑</h2><p>半导体开关取代机械开关后，其非零正向压降记为$V_{SW}$，有<br>$$V_{\mathrm{ON}}&#x3D;V_{\mathrm{IN}}{-}V_{\mathrm{SW}}\text{(升降压 })$$或$$V_{\mathrm{OFF}}&#x3D;V_{\mathbf{O}}+V_{\mathbf{D}}\text{(升降压)}$$由伏秒定理可得$$\frac{t_{\mathrm{OFF}}}{t_{\mathrm{ON}}}&#x3D;\frac{V_{\mathrm{IN}}-V_{\mathrm{Sw}}}{V_{\mathrm{O}}+V_{\mathrm{D}}}\text{(升降压)}$$即$$D&#x3D;\frac{V_{\mathrm{O}}+V_{\mathrm{D}}}{V_{\mathrm{IN}}-V_{\mathrm{SW}}+V_{\mathrm{O}}+V_{\mathrm{D}}}\text{(升降压 })$$<br>可以近似于$$V_{\mathbf{0}}&#x3D;V_{\mathbf{lN}}\times\frac{D}{1-D}\text{(升降压})$$</p>
+<h2 id="1-4-4-电路的地参考点"><a href="#1-4-4-电路的地参考点" class="headerlink" title="1.4.4 电路的地参考点"></a>1.4.4 电路的地参考点</h2><ul>
+<li>在DCDC中输出输入公共导线习惯被称作系统的地</li>
+<li>另一种惯用表示方法即0V</li>
+</ul>
+<h2 id="1-4-5-升降压变换器结构"><a href="#1-4-5-升降压变换器结构" class="headerlink" title="1.4.5 升降压变换器结构"></a>1.4.5 升降压变换器结构</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317161837.png"><br>可以看出升降压输出输入的电压极性是相反的，也被称为反极性拓扑</p>
+<h2 id="1-4-6-交换结点"><a href="#1-4-6-交换结点" class="headerlink" title="1.4.6 交换结点"></a>1.4.6 交换结点</h2><p>电感电流绕行之处，即开关和二极管之间的结点，称为交换结点</p>
+<h4 id="SW"><a href="#SW" class="headerlink" title="SW"></a>SW</h4><p>设计印制电路板PCB时需要注意，SW引脚（）不需要敷太多铜，否则会产生有效的电厂天线，产生射频干扰</p>
+<h2 id="1-4-7-升降压变换器分析"><a href="#1-4-7-升降压变换器分析" class="headerlink" title="1.4.7 升降压变换器分析"></a>1.4.7 升降压变换器分析</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317162524.png"><br>主要关注开关电流、二极管电流和电感电流之间的关系，即<br>$$\begin{aligned}I_{\mathrm{SW_AVG}}&amp;&#x3D;I_{\mathrm{L}}\times\frac{t_{\mathrm{ON}}}{T}&#x3D;I_{\mathrm{L}}\times D&amp;\text{(升降压)}\\I_{\mathrm{D_AVG}}&amp;&#x3D;I_{\mathrm{L}}\times\frac{t_{\mathrm{OFF}}}{T}&#x3D;I_{\mathrm{L}}\times D^{\prime}&#x3D;I_{\mathrm{L}}\times(1-D)&amp;\text{(升降压)}\end{aligned}$$</p>
+<h2 id="1-4-8-升降压变换器特性"><a href="#1-4-8-升降压变换器特性" class="headerlink" title="1.4.8 升降压变换器特性"></a>1.4.8 升降压变换器特性</h2><ol>
+<li>输出输入电压极性相反，可以升降压变换</li>
+<li>开关导通时，能量流入电感</li>
+<li>开关断开时，能量通过二极管输出给负载</li>
+<li><strong>升降压时唯一纯反激拓扑，没有能量直接从电源输出给负载</strong></li>
+<li>升降压变换器的效率不是很高，噪声纹波也比较大，可能需要在变换器输入端外加滤波器</li>
+</ol>
+<h2 id="1-4-9-为什么仅有三种基本拓扑"><a href="#1-4-9-为什么仅有三种基本拓扑" class="headerlink" title="1.4.9 为什么仅有三种基本拓扑"></a>1.4.9 为什么仅有三种基本拓扑</h2><p>分类方式：电感的接入方式：<br><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317163455.png"><br>只有三种连接方式具有合适的地参考点，即电感连接到输入端、输出端、和公共地</p>
+<h2 id="1-4-10-升压拓扑"><a href="#1-4-10-升压拓扑" class="headerlink" title="1.4.10 升压拓扑"></a>1.4.10 升压拓扑</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317163658.png"><br>$$V_{\mathrm{O}}&#x3D;V_{\mathrm{IN}}\times\frac{1}{1-D}\text{(升压 })$$</p>
+<h2 id="1-4-11-降压拓扑"><a href="#1-4-11-降压拓扑" class="headerlink" title="1.4.11 降压拓扑"></a>1.4.11 降压拓扑</h2><p><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blogPasted%20image%2020240317163950.png"></p>
+<p>$$V_{\mathbf{O}}&#x3D;V_{\mathbf{IN}}\times D\text{(降压 })$$</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://gegezwx.github.io">GeGEEK</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://gegezwx.github.io/2024/03/17/%E5%AD%A6%E4%B9%A0%E3%80%8A%E7%B2%BE%E9%80%9A%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1%E3%80%8B/">https://gegezwx.github.io/2024/03/17/%E5%AD%A6%E4%B9%A0%E3%80%8A%E7%B2%BE%E9%80%9A%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1%E3%80%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://gegezwx.github.io" target="_blank">GEGEEK</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1/">电源设计</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/">开关电源</a></div><div class="post_share"><div class="social-share" data-image="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blog%E8%8A%B1%E7%81%AB1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/19/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/I.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">GeGEEK</div><div class="author-info__description">haha</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/gegezwx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/gegezwx" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wangxin-zhang@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1.1 引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-%E6%A6%82%E8%BF%B0%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.</span> <span class="toc-text">1.2 概述和基本术语</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-1-%E6%95%88%E7%8E%87"><span class="toc-number">2.1.</span> <span class="toc-text">1.2.1 #效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2-%E7%BA%BF%E6%80%A7%E8%B0%83%E6%95%B4%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">1.2.2 线性调整器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-3-%E5%88%A9%E7%94%A8%E5%BC%80%E5%85%B3%E5%99%A8%E4%BB%B6%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">1.2.3 利用开关器件提高效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-4-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%BC%80%E5%85%B3%E5%99%A8%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">1.2.4 半导体开关器件的基本类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BJT%EF%BC%88%E5%8F%8C%E6%9E%81%E6%80%A7%E6%99%B6%E4%BD%93%E7%AE%A1%EF%BC%89"><span class="toc-number">2.4.1.</span> <span class="toc-text">BJT（双极性晶体管）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MOSFET%EF%BC%88%E9%87%91%E5%B1%9E%E6%B0%A7%E5%8C%96%E7%89%A9%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%9C%BA%E6%95%88%E5%BA%94%E6%99%B6%E4%BD%93%E7%AE%A1%EF%BC%89"><span class="toc-number">2.4.2.</span> <span class="toc-text">MOSFET（金属氧化物半导体场效应晶体管）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BJT%E5%92%8CMOSFET%E7%9A%84%E4%BA%89%E8%AE%BA"><span class="toc-number">2.4.3.</span> <span class="toc-text">BJT和MOSFET的争论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IGBT%EF%BC%88%E7%BB%9D%E7%BC%98%E6%A0%85%E5%9E%8B%E5%8F%8C%E6%9E%81%E6%99%B6%E4%BD%93%E7%AE%A1%EF%BC%89"><span class="toc-number">2.4.3.1.</span> <span class="toc-text">IGBT（绝缘栅型双极晶体管）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-5-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%BC%80%E5%85%B3%E5%99%A8%E4%BB%B6%E9%9D%9E%E7%90%86%E6%83%B3%E5%99%A8%E4%BB%B6"><span class="toc-number">2.5.</span> <span class="toc-text">1.2.5 半导体开关器件非理想器件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-6-%E5%88%A9%E7%94%A8%E7%94%B5%E6%8A%97%E5%85%83%E4%BB%B6%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87"><span class="toc-number">2.6.</span> <span class="toc-text">1.2.6 利用电抗元件提高效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-7-%E6%97%A9%E6%9C%9FRC%E5%9E%8B%E5%BC%80%E5%85%B3%E8%B0%83%E6%95%B4%E5%99%A8"><span class="toc-number">2.7.</span> <span class="toc-text">1.2.7 早期RC型开关调整器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-8-LC%E5%9E%8B%E5%BC%80%E5%85%B3%E8%B0%83%E6%95%B4%E5%99%A8"><span class="toc-number">2.8.</span> <span class="toc-text">1.2.8 LC型开关调整器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%BC%80%E5%85%B3%E8%B0%83%E6%95%B4%E5%99%A8"><span class="toc-number">2.8.1.</span> <span class="toc-text">其他开关调整器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-9-%E5%AF%84%E7%94%9F%E5%8F%82%E6%95%B0%E5%BD%B1%E5%93%8D"><span class="toc-number">2.9.</span> <span class="toc-text">1.2.9 寄生参数影响</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-10-%E9%AB%98%E9%A2%91%E5%BC%80%E5%85%B3%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.10.</span> <span class="toc-text">1.2.10 高频开关时的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-11-%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%81%E4%BD%BF%E7%94%A8%E5%AF%BF%E5%91%BD%E5%92%8C%E7%83%AD%E7%AE%A1%E7%90%86"><span class="toc-number">2.11.</span> <span class="toc-text">1.2.11 可靠性、使用寿命和热管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-12-%E5%BA%94%E5%8A%9B%E9%99%8D%E9%A2%91"><span class="toc-number">2.12.</span> <span class="toc-text">1.2.12 应力降频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-13-%E6%8A%80%E6%9C%AF%E5%8F%91%E5%B1%95"><span class="toc-number">2.13.</span> <span class="toc-text">1.2.13 技术发展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-%E7%94%B5%E6%84%9F"><span class="toc-number">3.</span> <span class="toc-text">1.3 电感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-1-%E7%94%B5%E5%AE%B9%E7%94%B5%E6%84%9F%E5%92%8C%E7%94%B5%E5%8E%8B%E7%94%B5%E6%B5%81"><span class="toc-number">3.1.</span> <span class="toc-text">1.3.1 电容电感和电压电流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-2-%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E7%9A%84%E5%85%85%E6%94%BE%E7%94%B5%E7%94%B5%E8%B7%AF"><span class="toc-number">3.2.</span> <span class="toc-text">1.3.2 电感电容的充放电电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-3-%E8%83%BD%E9%87%8F%E5%AE%88%E6%81%92%E5%AE%9A%E5%BE%8B"><span class="toc-number">3.3.</span> <span class="toc-text">1.3.3 能量守恒定律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-4-%E5%85%85%E7%94%B5%E9%98%B6%E6%AE%B5%E5%92%8C%E6%84%9F%E5%BA%94%E7%94%B5%E5%8E%8B%E6%A6%82%E5%BF%B5"><span class="toc-number">3.4.</span> <span class="toc-text">1.3.4 充电阶段和感应电压概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-5-%E4%B8%B2%E8%81%94%E7%94%B5%E9%98%BB%E5%AF%B9%E6%97%B6%E9%97%B4%E5%B8%B8%E6%95%B0%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">3.5.</span> <span class="toc-text">1.3.5 串联电阻对时间常数的影响</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-6-R-0%E6%97%B6%E7%9A%84%E7%94%B5%E6%84%9F%E5%85%85%E7%94%B5%E7%94%B5%E8%B7%AF%E5%92%8C%E7%94%B5%E6%84%9F%E6%96%B9%E7%A8%8B"><span class="toc-number">3.6.</span> <span class="toc-text">1.3.6 R&#x3D;0时的电感充电电路和电感方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-7-%E5%AF%B9%E5%81%B6%E5%8E%9F%E7%90%86"><span class="toc-number">3.7.</span> <span class="toc-text">1.3.7 对偶原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-8-%E7%94%B5%E5%AE%B9%E6%96%B9%E7%A8%8B"><span class="toc-number">3.8.</span> <span class="toc-text">1.3.8 电容方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-9-%E7%94%B5%E6%84%9F%E6%94%BE%E7%94%B5%E9%98%B6%E6%AE%B5"><span class="toc-number">3.9.</span> <span class="toc-text">1.3.9 电感放电阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-10-%E5%8F%8D%E5%87%BB%E8%83%BD%E9%87%8F%E5%92%8C%E7%BB%AD%E6%B5%81%E7%94%B5%E6%B5%81"><span class="toc-number">3.10.</span> <span class="toc-text">1.3.10 反击能量和续流电流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-11-%E7%94%B5%E6%B5%81%E5%BF%85%E9%A1%BB%E8%BF%9E%E7%BB%AD%EF%BC%8C%E4%BD%86%E5%85%B6%E5%8F%98%E5%8C%96%E7%8E%87%E6%9C%AA%E5%BF%85"><span class="toc-number">3.11.</span> <span class="toc-text">1.3.11 电流必须连续，但其变化率未必</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-12-%E7%94%B5%E5%8E%8B%E5%8F%8D%E5%90%91%E7%8E%B0%E8%B1%A1"><span class="toc-number">3.12.</span> <span class="toc-text">1.3.12 电压反向现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-13-%E5%8A%9F%E7%8E%87%E5%8F%98%E6%8D%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%A8%B3%E6%80%81%E5%8F%8A%E5%85%B6%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.13.</span> <span class="toc-text">1.3.13 功率变换过程中的稳态及其不同工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-14-%E4%BC%8F%E7%A7%92%E5%B9%B3%E8%A1%A1%E3%80%81%E7%94%B5%E6%84%9F%E5%A4%8D%E4%BD%8D%E5%92%8C%E5%8F%98%E6%8D%A2%E5%99%A8%E7%9A%84%E5%8D%A0%E7%A9%BA%E6%AF%94"><span class="toc-number">3.14.</span> <span class="toc-text">1.3.14 伏秒平衡、电感复位和变换器的占空比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-15-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%BC%80%E5%85%B3%E5%99%A8%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E4%BF%9D%E6%8A%A4"><span class="toc-number">3.15.</span> <span class="toc-text">1.3.15 半导体开关器件的使用和保护</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-4-%E5%BC%80%E5%85%B3%E6%8B%93%E6%89%91%E7%9A%84%E6%BC%94%E5%8F%98"><span class="toc-number">4.</span> <span class="toc-text">1.4 开关拓扑的演变</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-1-%E9%80%9A%E8%BF%87%E4%BA%8C%E6%9E%81%E7%AE%A1%E7%BB%AD%E6%B5%81%E6%8E%A7%E5%88%B6%E6%84%9F%E5%BA%94%E7%94%B5%E5%8E%8B%E5%B0%96%E5%B3%B0"><span class="toc-number">4.1.</span> <span class="toc-text">1.4.1 通过二极管续流控制感应电压尖峰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-2-%E8%BE%BE%E5%88%B0%E7%A8%B3%E6%80%81%E5%B9%B6%E8%8E%B7%E5%BE%97%E6%9C%89%E7%94%A8%E8%83%BD%E9%87%8F"><span class="toc-number">4.2.</span> <span class="toc-text">1.4.2 达到稳态并获得有用能量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-3-%E5%8D%87%E9%99%8D%E5%8E%8B%E6%8B%93%E6%89%91"><span class="toc-number">4.3.</span> <span class="toc-text">1.4.3 升降压拓扑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-4-%E7%94%B5%E8%B7%AF%E7%9A%84%E5%9C%B0%E5%8F%82%E8%80%83%E7%82%B9"><span class="toc-number">4.4.</span> <span class="toc-text">1.4.4 电路的地参考点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-5-%E5%8D%87%E9%99%8D%E5%8E%8B%E5%8F%98%E6%8D%A2%E5%99%A8%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">1.4.5 升降压变换器结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-6-%E4%BA%A4%E6%8D%A2%E7%BB%93%E7%82%B9"><span class="toc-number">4.6.</span> <span class="toc-text">1.4.6 交换结点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SW"><span class="toc-number">4.6.0.1.</span> <span class="toc-text">SW</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-7-%E5%8D%87%E9%99%8D%E5%8E%8B%E5%8F%98%E6%8D%A2%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">4.7.</span> <span class="toc-text">1.4.7 升降压变换器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-8-%E5%8D%87%E9%99%8D%E5%8E%8B%E5%8F%98%E6%8D%A2%E5%99%A8%E7%89%B9%E6%80%A7"><span class="toc-number">4.8.</span> <span class="toc-text">1.4.8 升降压变换器特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-9-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%85%E6%9C%89%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%8B%93%E6%89%91"><span class="toc-number">4.9.</span> <span class="toc-text">1.4.9 为什么仅有三种基本拓扑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-10-%E5%8D%87%E5%8E%8B%E6%8B%93%E6%89%91"><span class="toc-number">4.10.</span> <span class="toc-text">1.4.10 升压拓扑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-11-%E9%99%8D%E5%8E%8B%E6%8B%93%E6%89%91"><span class="toc-number">4.11.</span> <span class="toc-text">1.4.11 降压拓扑</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/17/%E5%AD%A6%E4%B9%A0%E3%80%8A%E7%B2%BE%E9%80%9A%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1%E3%80%8B/" title="学习《精通开关电源设计》"><img src="https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blog%E8%8A%B1%E7%81%AB1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学习《精通开关电源设计》"/></a><div class="content"><a class="title" href="/2024/03/17/%E5%AD%A6%E4%B9%A0%E3%80%8A%E7%B2%BE%E9%80%9A%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E8%AE%BE%E8%AE%A1%E3%80%8B/" title="学习《精通开关电源设计》">学习《精通开关电源设计》</a><time datetime="2024-03-17T08:48:21.000Z" title="发表于 2024-03-17 16:48:21">2024-03-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/19/hello-world/" title="Hello World">Hello World</a><time datetime="2023-12-19T14:57:59.592Z" title="发表于 2023-12-19 22:57:59">2023-12-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gegeekblog-1325046062.cos.ap-chengdu.myqcloud.com/blog%E8%8A%B1%E7%81%AB1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2024 By GeGEEK</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
